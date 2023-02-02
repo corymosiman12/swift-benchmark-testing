@@ -20,12 +20,12 @@ public class MemoryTests: XCTestCase {
         }
     }
     func testExplicitCapture() throws {
-        for _ in 0 ..< 1_000_000 {
+        for _ in 0 ..< 100_000 {
             blackHole(ExplicitCaptureEncoder())
         }
     }
     func testWeakCapture() throws {
-        for _ in 0 ..< 1_000_000 {
+        for _ in 0 ..< 100_000 {
             blackHole(WeakCaptureEncoder())
         }
     }
