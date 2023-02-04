@@ -21,12 +21,20 @@ let package = Package(
             path: "Tests"
         ),
         .executableTarget(
-            name: "MemoryBenchmarks",
+            name: "ExplicitCaptureBenchmarks",
             dependencies: [
                 "MemoryThings",
                 .product(name: "BenchmarkSupport", package: "package-benchmark"),
             ],
-            path: "Benchmarks/MemoryBenchmarks"
+            path: "Benchmarks/ExplicitCaptureBenchmarks"
+        ),
+        .executableTarget(
+            name: "WeakCaptureBenchmarks",
+            dependencies: [
+                "MemoryThings",
+                .product(name: "BenchmarkSupport", package: "package-benchmark"),
+            ],
+            path: "Benchmarks/WeakCaptureBenchmarks"
         ),
 
     ]
