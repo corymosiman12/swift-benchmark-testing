@@ -1,6 +1,5 @@
 import BenchmarkSupport
 @main extension BenchmarkRunner {}
-import MemoryThings
 import Foundation
 
 @_dynamicReplacement(for: registerBenchmarks) // Register benchmarks
@@ -14,10 +13,16 @@ func benchmarks() {
     // In order to get 100k iterations: desiredIterations * scalingFactor
     Benchmark.defaultDesiredIterations = 1000
     Benchmark(
-        "Explicit Capture Memory"
+        "SwiftCoreLibsIssue4275Reproducer"
     ) { benchmark in
         for _ in benchmark.throughputIterations {
-            BenchmarkSupport.blackHole(ExplicitCaptureEncoder())
+            let t = Test(foo: "Hello World")
+            let encoder = JSONEncoder()
+            blackHole(try? encoder.encode(t))
         }
     }
+}
+
+struct Test: Codable {
+    let foo: String
 }

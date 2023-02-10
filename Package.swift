@@ -36,6 +36,13 @@ let package = Package(
             ],
             path: "Benchmarks/WeakCaptureBenchmarks"
         ),
+        .executableTarget(
+            name: "SwiftCoreLibsIssue4275Reproducer",
+            dependencies: [
+                .product(name: "BenchmarkSupport", package: "package-benchmark"),
+            ],
+            path: "Benchmarks/SwiftCoreLibsIssue4275Reproducer"
+        ),
 
     ]
 )

@@ -12,7 +12,7 @@ func benchmarks() {
     Benchmark.defaultThroughputScalingFactor = .kilo
     
     // In order to get 100k iterations: desiredIterations * scalingFactor
-    Benchmark.defaultDesiredIterations = 100
+    Benchmark.defaultDesiredIterations = 1000
     Benchmark(
         "Weak Capture Memory"
     ) { benchmark in
